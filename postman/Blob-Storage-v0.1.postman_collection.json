@@ -1,0 +1,404 @@
+{
+	"info": {
+		"_postman_id": "e0d8e380-fc2d-4b06-a16c-bde24af9da79",
+		"name": "Blob-Storage-v0.1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20865396",
+		"_collection_link": "https://blaze-tech.postman.co/workspace/Collab-2025~8fb37b75-99a6-4d78-83a2-95102d464241/collection/20865396-e0d8e380-fc2d-4b06-a16c-bde24af9da79?action=share&source=collection_link&creator=20865396"
+	},
+	"item": [
+		{
+			"name": "Folder Oprations",
+			"item": [
+				{
+					"name": "addFolder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"agri\"\r\n    // \"isChildRequired\":true\r\n//     \"name\":\"slider\",\r\n//  \"parentFolderId\":12\r\n/* name is must parent id can be null for parent folder otherwise send parentFolderId */\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base_URL}}/folders/addFolder",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"folders",
+								"addFolder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllFolders",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/* get root folders */",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base_URL}}/folders/getAllFolders",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"folders",
+								"getAllFolders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getParentFolders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base_URL}}/folders/getSubFolders",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"folders",
+								"getSubFolders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getFolderById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/* get root folders */",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base_URL}}/folders/getFolderById/33",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"folders",
+								"getFolderById",
+								"33"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSubFoldersById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/* get root folders */",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base_URL}}/folders/getSubFolders?parentFolderId=33",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"folders",
+								"getSubFolders"
+							],
+							"query": [
+								{
+									"key": "parentFolderId",
+									"value": "33"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "renameFolder",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"newName\": \"img\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base_URL}}/folders/renameFolder/1",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"folders",
+								"renameFolder",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteFolder",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{Base_URL}}/folders/deleteFolder/33",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"folders",
+								"deleteFolder",
+								"33"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "File Oprations",
+			"item": [
+				{
+					"name": "upload file",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Swapnil/Pictures/james.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Base_URL}}/files/upload/3",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"files",
+								"upload",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getFilesByFolderId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Base_URL}}/files/getFilesByFolderId/1",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"files",
+								"getFilesByFolderId",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "renameOrMoveFile",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"newName\": \"pdf\"\r\n//   \"newFolderPath\": \"C:\\\\xampp\\\\htdocs\\\\media\\\\sandip\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base_URL}}/files/renameOrMoveFile/1",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"files",
+								"renameOrMoveFile",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteFile",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"newName\": \"new\",\r\n  \"newFolderPath\": \"C:\\\\xampp\\\\htdocs\\\\media\\\\sandip\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Base_URL}}/files/deleteFile/33",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"files",
+								"deleteFile",
+								"33"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lockUnlock",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{Base_URL}}/files/lockUnlock/1",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"files",
+								"lockUnlock",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateFileById",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Swapnil/Downloads/Samples/pdf05mb.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Base_URL}}/files/updateFileById/1",
+							"host": [
+								"{{Base_URL}}"
+							],
+							"path": [
+								"files",
+								"updateFileById",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{authToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Base_URL",
+			"value": "http://localhost:8080/api",
+			"type": "string"
+		}
+	]
+}
